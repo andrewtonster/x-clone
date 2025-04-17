@@ -19,6 +19,7 @@ const Image = ({ path, w, h, alt, className, tr }: ImageType) => {
       urlEndpoint={urlEndpoint}
       src={path}
       alt={alt}
+      //   lqip={{ active: true, quality: 20 }}
       className={className}
       width={w}
       height={h}

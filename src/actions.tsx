@@ -20,11 +20,26 @@ export const shareAction = async (
       ? "ar-16-9"
       : ""
   }`;
+
+  //   const transformation = [
+  //     { width: 600 },
+  //     ...(settings.type === "square"
+  //       ? [{ aspectRatio: "1-1" }]
+  //       : settings.type === "wide"
+  //       ? [{ aspectRatio: "16-9" }]
+  //       : []),
+  //   ];
+
   imagekit.upload(
     {
       file: buffer,
       fileName: file.name,
       folder: "/posts",
+      ...(file.type.includes("image") && {
+        transformation: {
+          pre: transformation,
+        },
+      }),
       transformation: {
         pre: transformation,
       },
