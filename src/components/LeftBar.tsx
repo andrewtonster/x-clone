@@ -75,7 +75,7 @@ const LeftBar = () => {
           <Image path="icons/logo.svg" alt="logo" w={24} h={24} />
         </Link>
         {/* MENU LIST */}
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-4">
           {menuList.map((item) => (
             <Link
               href={item.link}
@@ -94,20 +94,20 @@ const LeftBar = () => {
         </div>
         {/* BUTTON */}
         <Link
-          href="/"
+          href="/compose/post"
           className="bg-white text-black rounded-full w-12 h-12 flex items-center justify-center xxl:hidden"
         >
           <Image path="icons/post.svg" alt="new post" w={24} h={24} />
         </Link>
         <Link
-          href="/"
+          href="/compose/post"
           className="hidden xxl:block bg-white text-black rounded-full font-bold py-2 px-20"
         >
           Post
         </Link>
       </div>
 
-      <div className="flex items-center justify-baseline">
+      <div className="flex items-center justify-between">
         <div className=" flex items-center gap-2">
           <div className="w-10 h-10 relative rounded-full overflow-hidden">
             <Image
