@@ -1,5 +1,4 @@
 "use server";
-import ImageKit from "imagekit";
 
 import { imagekit } from "./utils";
 
@@ -8,7 +7,7 @@ export const shareAction = async (
   settings: { type: "original" | "wide" | "square"; sensitive: boolean }
 ) => {
   const file = formData.get("file") as File;
-  //   const desc = formData.get("file") as string;
+  // const desc = formData.get("desc") as string;
 
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
@@ -21,15 +20,6 @@ export const shareAction = async (
       : ""
   }`;
 
-  //   const transformation = [
-  //     { width: 600 },
-  //     ...(settings.type === "square"
-  //       ? [{ aspectRatio: "1-1" }]
-  //       : settings.type === "wide"
-  //       ? [{ aspectRatio: "16-9" }]
-  //       : []),
-  //   ];
-
   imagekit.upload(
     {
       file: buffer,
@@ -40,9 +30,6 @@ export const shareAction = async (
           pre: transformation,
         },
       }),
-      transformation: {
-        pre: transformation,
-      },
       customMetadata: {
         sensitive: settings.sensitive,
       },

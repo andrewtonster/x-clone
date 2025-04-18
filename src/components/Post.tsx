@@ -25,7 +25,7 @@ const Post = async ({ type }: { type?: "status" | "comment" }) => {
   };
 
   const fileDetails = await getFileDetails("68013774432c476416589d22");
-  console.log(fileDetails);
+  //   console.log(fileDetails);
   return (
     <div className="p-4 border-y-[1px] border-borderGray">
       <div className="flex items-center gap-2 text-sm text-textGray mb-2 font-bold">
