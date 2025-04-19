@@ -1,7 +1,7 @@
 import LeftBar from "@/components/LeftBar";
 import "./globals.css";
 import RightBar from "@/components/RightBar";
-
+import QueryProvider from "@/providers/QueryProvider";
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 
@@ -17,9 +17,11 @@ export default function AppLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body>{children}</body>
-      </html>
+      <QueryProvider>
+        <html lang="en">
+          <body>{children}</body>
+        </html>
+      </QueryProvider>
     </ClerkProvider>
   );
 }
