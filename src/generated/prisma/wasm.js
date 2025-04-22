@@ -127,7 +127,9 @@ exports.Prisma.UserScalarFieldEnum = {
   job: 'job',
   website: 'website',
   img: 'img',
-  cover: 'cover'
+  cover: 'cover',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.PostScalarFieldEnum = {

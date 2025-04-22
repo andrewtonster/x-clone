@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
+  //   await prisma.user.deleteMany();
   // Create 5 users with unique details
   const users = [];
   for (let i = 1; i <= 5; i++) {
