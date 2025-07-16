@@ -1,6 +1,6 @@
 "use client";
 
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "./Post";
 

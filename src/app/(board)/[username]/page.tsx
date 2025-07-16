@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Link from "next/link";
 import Image from "@/components/Image";
 import Feed from "@/components/Feed";
@@ -113,13 +112,6 @@ const UserPage = async ({ params }: Props) => {
             )}
             <div className="flex items-center gap-2">
               <Image path="icons/date.svg" alt="date" w={20} h={20} />
-              <span>
-                Joined{" "}
-                {new Date(user.createdAt).toLocaleDateString("en-US", {
-                  month: "long",
-                  year: "numeric",
-                })}
-              </span>
             </div>
           </div>
           {/* FOLLOWINGS AND FOLLOWERS */}

@@ -1,6 +1,4 @@
 import React from "react";
-import Link from "next/link";
-import Image from "@/components/Image";
 import Post from "@/components/Post";
 import Comments from "@/components/Comments";
 import { auth } from "@clerk/nextjs/server";
@@ -80,7 +78,7 @@ const StatusPage = async ({
         comments={post.comments}
         postId={post.id}
         username={post.user.username}
-        userImg={user.img}
+        // userImg={user.img}
       />
     </div>
   );

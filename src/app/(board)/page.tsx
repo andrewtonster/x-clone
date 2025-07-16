@@ -20,7 +20,7 @@ const Homepage = async () => {
     },
   });
 
-  console.log("reached hompage, this is my user id", userId);
+  if (!user) return;
   if (!userId) return redirectToSignIn();
   return (
     <div className="">

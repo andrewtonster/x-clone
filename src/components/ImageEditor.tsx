@@ -1,15 +1,17 @@
 import Image from "next/image";
 import React from "react";
 
+// TODO: Componenet to edit an image when posting
 const ImageEditor = ({
   onClose,
   previewURL,
   settings,
   setSettings,
 }: {
-  onClose: () => void;
-  previewURL: string;
+  onClose: () => void; // defined as a function that returns nothing
+  previewURL: string; // a string
   settings: {
+    // settings is an object
     type: "original" | "wide" | "square";
     sensitive: boolean;
   };
@@ -20,10 +22,11 @@ const ImageEditor = ({
     }>
   >;
 }) => {
+  // event handler function that adds or removes the sensitive property on the obj
   const handleChangeSensitive = (sensitive: boolean) => {
     setSettings((prev) => ({ ...prev, sensitive }));
   };
-
+  // event handler function that changes the settings of our image
   const handleChangeType = (type: "original" | "wide" | "square") => {
     setSettings((prev) => ({ ...prev, type }));
   };
@@ -56,12 +59,13 @@ const ImageEditor = ({
         </div>
         {/* IMAGE CONTAINER */}
         <div className="w-[600px] h-[600px] flex items-center">
-          <Image
+          <Image // getting the image we chose preview
             src={previewURL}
             alt=""
             width={600}
             height={600}
             className={`w-full ${
+              // changing how the image looks depending on how we define the type
               settings.type === "original"
                 ? "h-full object-contain"
                 : settings.type === "square"
@@ -75,7 +79,7 @@ const ImageEditor = ({
           <div className="flex items-center gap-8">
             <div
               className="flex items-center gap-2 cursor-pointer"
-              onClick={() => handleChangeType("original")}
+              onClick={() => handleChangeType("original")} // changing the type for the original one
             >
               <svg width={24} viewBox="0 0 24 24">
                 <path
@@ -92,7 +96,7 @@ const ImageEditor = ({
 
             <div
               className="flex items-center gap-2 cursor-pointer"
-              onClick={() => handleChangeType("wide")}
+              onClick={() => handleChangeType("wide")} // button to change to wide
             >
               <svg width={24} viewBox="0 0 24 24">
                 <path
@@ -109,7 +113,7 @@ const ImageEditor = ({
 
             <div
               className="flex items-center gap-2 cursor-pointer"
-              onClick={() => handleChangeType("square")}
+              onClick={() => handleChangeType("square")} // button to change to square
             >
               <svg width={24} viewBox="0 0 24 24">
                 <path
@@ -125,7 +129,7 @@ const ImageEditor = ({
             </div>
           </div>
           <div
-            onClick={() => handleChangeSensitive(!settings.sensitive)}
+            onClick={() => handleChangeSensitive(!settings.sensitive)} // button to determine if it is seensitive or not
             className={`cursor-pointer py-1 px-4 rounded-full text-black ${
               settings.sensitive ? "bg-red-500" : "bg-white"
             }`}

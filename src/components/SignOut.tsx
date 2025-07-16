@@ -1,9 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { socket } from "../socket";
-import { SignOutButton } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
 import { useClerk } from "@clerk/nextjs";
 
 const SignOut = ({
@@ -17,7 +14,7 @@ const SignOut = ({
   const [open, setOpen] = useState(false);
 
   const logout = () => {
-    socket.disconnect();
+    // socket.disconnect();
     signOut({ redirectUrl: "/sign-in" });
   };
 

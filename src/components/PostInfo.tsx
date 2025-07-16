@@ -3,10 +3,15 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "@/components/Image";
 import { useActionState } from "react";
 import { deletePost } from "@/action";
-import Loader from "./Loader";
 
 //TODO: just a static image of the ... in top right
-function PostInfo({ postId, usersPost }) {
+function PostInfo({
+  postId,
+  usersPost,
+}: {
+  postId: number;
+  usersPost: boolean | undefined;
+}) {
   const [open, setIsOpen] = useState(false);
   const [state, formAction, isPending] = useActionState(deletePost, {
     success: false,
@@ -16,8 +21,9 @@ function PostInfo({ postId, usersPost }) {
   const deleteRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const handler = (e) => {
-      if (!deleteRef.current?.contains(e.target)) {
+    const handler = (e: MouseEvent) => {
+      const targetNode = e.target as Node;
+      if (!deleteRef.current?.contains(targetNode)) {
         setIsOpen(false);
       }
     };

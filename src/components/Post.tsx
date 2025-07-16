@@ -2,7 +2,6 @@ import React from "react";
 import Image from "@/components/Image";
 import PostInfo from "./PostInfo";
 import PostInteractions from "./PostInteractions";
-import { imagekitas } from "@/utils";
 import Link from "next/link";
 import { Post as PostType } from "@prisma/client";
 import { format } from "timeago.js";
@@ -20,7 +19,7 @@ type Engagement = {
   likes: { id: number }[];
   rePosts: { id: number }[];
   saves: { id: number }[];
-  isAuthor: boolean;
+  isAuthor?: boolean;
 };
 type PostWithDetails = PostType &
   Engagement & {
@@ -37,8 +36,6 @@ const Post = ({
 }) => {
   // checking if the post has a repost field, if not just keep the post as the original post
   const originalPost = post.rePost || post;
-
-  console.log("this post has a repost ", post.desc, post.id, post.rePost);
 
   return (
     /* IF POST IS REPOST */
@@ -141,12 +138,7 @@ const Post = ({
             </p>
           </Link>
           {originalPost.img && ( // if user posted with image than display it
-            <Image
-              path={originalPost.img}
-              alt=""
-              w={600}
-              h={originalPost.imgHeight || 600}
-            />
+            <Image path={originalPost.img} alt="" w={600} h={600} />
           )}
           {/* <Image path="general/post.jpeg" alt="" w={600} h={600} /> */}
           {type === "status" && (

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useActionState, useEffect } from "react";
+import React, { useActionState } from "react";
 import Post from "./Post";
 import Image from "./Image";
 import { Post as PostType } from "@prisma/client";

@@ -1,8 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "@/components/Image";
-import Socket from "./Socket";
-import Notification from "./Notification";
 import { auth } from "@clerk/nextjs/server";
 import { prisma } from "@/prisma";
 import SignOut from "./SignOut";

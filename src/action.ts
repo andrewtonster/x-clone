@@ -1,6 +1,5 @@
 "use server";
 import { auth } from "@clerk/nextjs/server";
-import { redirect, useRouter } from "next/navigation";
 // import { prisma } from "./prisma";
 import { prisma } from "./prisma";
 import { z } from "zod";
@@ -219,9 +218,9 @@ export const addPost = async (
     return { success: false, error: true };
   }
 
-  let img = "";
-  let imgHeight = 0;
-  let video = "";
+  let img: string | undefined = "";
+  let imgHeight: number | undefined = 0;
+  let video: string | undefined = "";
 
   // checking if our file exist
   if (file.size) {

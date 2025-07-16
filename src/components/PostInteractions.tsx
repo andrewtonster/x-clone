@@ -76,7 +76,7 @@ function PostInteractions({
     // }
 
     addOptomisticCount("rePost");
-    // await rePost(postId);
+    await rePost(postId);
     setState((prev) => {
       return {
         ...prev,

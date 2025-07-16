@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, CSSProperties } from "react";
-import { ClipLoader, SyncLoader } from "react-spinners";
+import { SyncLoader } from "react-spinners";
 
 const override: CSSProperties = {
   display: "block",

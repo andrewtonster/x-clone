@@ -6,11 +6,11 @@ import { useState } from "react";
 
 import ImageEditor from "./ImageEditor";
 // import { addComment, addPost } from "@/actions";
-import { addComment, addPost } from "@/action";
+import { addPost } from "@/action";
 import { useUser } from "@clerk/nextjs";
 
 // TODO: Component used to share a post
-function Share({ userImg }: { userImg: string }) {
+function Share({ userImg }: { userImg: string | null }) {
   const [media, setMedia] = useState<File | null>(null);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [settings, setSettings] = useState<{
@@ -52,12 +52,7 @@ function Share({ userImg }: { userImg: string }) {
   return (
     <>
       {user && (
-        <form
-          ref={formRef}
-          className="p-4 flex gap-4"
-          //   action={(formData) => shareAction(formData, settings)}
-          action={formAction}
-        >
+        <form ref={formRef} className="p-4 flex gap-4" action={formAction}>
           {/* AVATAR */}
           <div className="relative w-10 h-10 rounded-full overflow-hidden">
             <Image

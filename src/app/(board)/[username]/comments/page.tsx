@@ -113,13 +113,6 @@ const Comments = async ({ params }: Props) => {
                 )}
                 <div className="flex items-center gap-2">
                   <Image path="icons/date.svg" alt="date" w={20} h={20} />
-                  <span>
-                    Joined{" "}
-                    {new Date(user.createdAt).toLocaleDateString("en-US", {
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </span>
                 </div>
               </div>
               {/* FOLLOWINGS AND FOLLOWERS */}
