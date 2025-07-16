@@ -21,10 +21,12 @@ const Comments = ({
   comments,
   postId,
   username,
+  userImg,
 }: {
   comments: CommentWithDetails[];
   postId: number;
   username: string;
+  userImg: string | null;
 }) => {
   const { isLoaded, isSignedIn, user } = useUser(); // getting the user
 
@@ -62,7 +64,7 @@ const Comments = ({
         >
           <div className="relative w-10 h-10 rounded-full overflow-hidden -z-10">
             <Image
-              path={user?.imageUrl}
+              path={userImg || "general/noAvatar.png"}
               alt="Andrew"
               w={100}
               h={100}

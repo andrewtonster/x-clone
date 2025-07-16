@@ -78,7 +78,7 @@ const StatusPage = async ({
         comments={post.comments}
         postId={post.id}
         username={post.user.username}
-        // userImg={user.img}
+        userImg={user.img}
       />
     </div>
   );
