@@ -3,7 +3,7 @@
 import React, { useActionState } from "react";
 import Post from "./Post";
 import Image from "./Image";
-import { Post as PostType } from "@prisma/client";
+import type { Post as PostType } from "@prisma/client";
 import { useUser } from "@clerk/nextjs";
 import { addComment } from "@/action";
 // import { socket } from "@/socket";

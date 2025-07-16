@@ -229,11 +229,12 @@ const config = {
     "db"
   ],
   "activeProvider": "mysql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "mysql://root:gns84hy8skt8gfswo8gn4w@localhost:55000/mydb"
+        "value": null
       }
     }
   },
