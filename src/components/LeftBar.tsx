@@ -95,9 +95,9 @@ const LeftBar = async () => {
         {/* MENU LIST */}
         <div className="flex flex-col gap-4">
           {menuList.map((item, i) => {
-            if (i === 2) {
-              return <Notification key="notification" />;
-            }
+            // if (i === 2) {
+            //   return <Notification key="notification" />;
+            // }
             if (i === 4) {
               return (
                 <Link
