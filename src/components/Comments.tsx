@@ -6,7 +6,7 @@ import Image from "./Image";
 import { Post as PostType } from "@prisma/client";
 import { useUser } from "@clerk/nextjs";
 import { addComment } from "@/action";
-import { socket } from "@/socket";
+// import { socket } from "@/socket";
 
 //TODO: We are getting the comments to show from the "specific post page"
 type CommentWithDetails = PostType & {
@@ -21,12 +21,10 @@ const Comments = ({
   comments,
   postId,
   username,
-  userImg,
 }: {
   comments: CommentWithDetails[];
   postId: number;
   username: string;
-  userImg: string | null;
 }) => {
   const { isLoaded, isSignedIn, user } = useUser(); // getting the user
 
@@ -41,18 +39,18 @@ const Comments = ({
 
   // use this effect if state.success changes, and check if it is true or false
   // emitting a notification to the other user
-  useEffect(() => {
-    if (state.success) {
-      socket.emit("sendNotification", {
-        receiverUsername: username,
-        data: {
-          senderUsername: user?.username,
-          type: "comment",
-          link: `/${username}/status/${postId}`,
-        },
-      });
-    }
-  }, [state.success, username, user?.username, postId]);
+  // useEffect(() => {
+  //   if (state.success) {
+  //     socket.emit("sendNotification", {
+  //       receiverUsername: username,
+  //       data: {
+  //         senderUsername: user?.username,
+  //         type: "comment",
+  //         link: `/${username}/status/${postId}`,
+  //       },
+  //     });
+  //   }
+  // }, [state.success, username, user?.username, postId]);
 
   return (
     <div className="">
@@ -64,7 +62,7 @@ const Comments = ({
         >
           <div className="relative w-10 h-10 rounded-full overflow-hidden -z-10">
             <Image
-              path={userImg || "general/noAvatar.png"}
+              path={user?.imageUrl}
               alt="Andrew"
               w={100}
               h={100}

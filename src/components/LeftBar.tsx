@@ -241,7 +241,7 @@ const LeftBar = async () => {
         <div className="hidden xxl:block cursor-pointer font-bold">
           <SignOut user={user.username} />
         </div>
-        <Socket />
+        {/* <Socket /> */}
       </div>
     </div>
   );

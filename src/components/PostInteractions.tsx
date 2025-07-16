@@ -1,10 +1,7 @@
 "use client";
 import React from "react";
 import { likePost, rePost, savePost } from "@/action";
-// import { likePost, rePost, savePost } from "@/actions";
-import { socket } from "@/socket";
 import { useOptimistic, useState } from "react";
-
 import { useUser } from "@clerk/nextjs";
 
 //TODO: Component to show the interactions, pass the specific post and get
@@ -41,17 +38,17 @@ function PostInteractions({
     console.log(username);
     if (!user) return;
 
-    if (!optimisticCount.isLiked) {
-      console.log("in like action, testing socket emit");
-      socket.emit("sendNotification", {
-        receiverUsername: username,
-        data: {
-          senderUsername: user.username,
-          type: "like",
-          link: `/${username}/status/${postId}`,
-        },
-      });
-    }
+    // if (!optimisticCount.isLiked) {
+    //   console.log("in like action, testing socket emit");
+    //   socket.emit("sendNotification", {
+    //     receiverUsername: username,
+    //     data: {
+    //       senderUsername: user.username,
+    //       type: "like",
+    //       link: `/${username}/status/${postId}`,
+    //     },
+    //   });
+    // }
     addOptomisticCount("like"); // update ui immedietly before waiting for a backend call
     await likePost(postId);
     setState((prev) => {
@@ -67,19 +64,19 @@ function PostInteractions({
   const rePostAction = async () => {
     if (!user) return;
 
-    if (!optimisticCount.isRePosted) {
-      socket.emit("sendNotification", {
-        receiverUsername: username,
-        data: {
-          senderUsername: user.username,
-          type: "rePost",
-          link: `/${username}/status/${postId}`,
-        },
-      });
-    }
+    // if (!optimisticCount.isRePosted) {
+    //   socket.emit("sendNotification", {
+    //     receiverUsername: username,
+    //     data: {
+    //       senderUsername: user.username,
+    //       type: "rePost",
+    //       link: `/${username}/status/${postId}`,
+    //     },
+    //   });
+    // }
 
     addOptomisticCount("rePost");
-    await rePost(postId);
+    // await rePost(postId);
     setState((prev) => {
       return {
         ...prev,
