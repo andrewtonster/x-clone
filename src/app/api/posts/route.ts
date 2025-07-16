@@ -4,6 +4,14 @@ import { NextRequest } from "next/server";
 
 //TODO: Defining the Get function to get all the posts
 // getting the parameters from the url
+type RawPost = Awaited<ReturnType<typeof prisma.post.findMany>>[number];
+
+//  ─── 2) Augment it with your extra flag ───────────────────────────────────────
+
+export type Post = RawPost & {
+  /** true if the currently authenticated user owns this post */
+  isAuthor: boolean;
+};
 export async function GET(request: NextRequest) {
   // getting the URL object pointing at request to inspect and recieve params
   const searchParams = request.nextUrl.searchParams;
@@ -52,7 +60,7 @@ export async function GET(request: NextRequest) {
 
   // we are finding multiple posts that have the where condition and also including
   // the postInclude
-  const posts = await prisma.post.findMany({
+  const posts: RawPost[] = await prisma.post.findMany({
     where: whereCondition,
     include: {
       rePost: {
@@ -65,6 +73,9 @@ export async function GET(request: NextRequest) {
     orderBy: { createdAt: "desc" },
   });
 
+  /*
+
+  */
   const postWithFlags = posts.map((post) => ({
     ...post,
     isAuthor: post.userId === userId,
