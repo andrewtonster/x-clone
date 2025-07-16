@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
                   where: { followerId: userId }, // followerId represetns person doing the following, so this represents everyone i follow
                   select: { followingId: true }, // The logged in user is a follower, select all the ids im following
                 })
-              ).map((follow) => follow.followingId),
+              ).map((follow: { followingId: string }) => follow.followingId),
             ],
           },
         };
