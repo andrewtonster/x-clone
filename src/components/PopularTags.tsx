@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "./Image";
 import Link from "next/link";
+
+//TODO: Just displaying the popular tags
 const PopularTags = () => {
   return (
     <div className="p-4 rounded-2xl border-[1px] border-borderGray flex flex-col gap-4">

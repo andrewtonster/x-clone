@@ -4,14 +4,16 @@ import Image from "@/components/Image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
+//TODO: page that renders the post on the left bar
 const PostModal = () => {
   const router = useRouter();
 
   const closeModal = () => {
     router.back();
   };
+
   return (
-    <div className="absolute w-screen h-screen top-0 left-0 z-20 bg-[#293139a6] flex justify-center">
+    <div className="fixed w-screen h-screen top-0 left-0 z-20 bg-[#293139a6] flex justify-center">
       <div className="py-4 px-8 rounded-xl bg-black w-[600px] h-max mt-12">
         {/* TOP */}
         <div className="flex items-center justify-between">

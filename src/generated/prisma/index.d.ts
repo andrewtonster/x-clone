@@ -2475,12 +2475,14 @@ export namespace Prisma {
 
   export type PostAvgAggregateOutputType = {
     id: number | null
+    imgHeight: number | null
     rePostId: number | null
     parentPostId: number | null
   }
 
   export type PostSumAggregateOutputType = {
     id: number | null
+    imgHeight: number | null
     rePostId: number | null
     parentPostId: number | null
   }
@@ -2491,6 +2493,7 @@ export namespace Prisma {
     updatedAt: Date | null
     desc: string | null
     img: string | null
+    imgHeight: number | null
     video: string | null
     isSensitive: boolean | null
     userId: string | null
@@ -2504,6 +2507,7 @@ export namespace Prisma {
     updatedAt: Date | null
     desc: string | null
     img: string | null
+    imgHeight: number | null
     video: string | null
     isSensitive: boolean | null
     userId: string | null
@@ -2517,6 +2521,7 @@ export namespace Prisma {
     updatedAt: number
     desc: number
     img: number
+    imgHeight: number
     video: number
     isSensitive: number
     userId: number
@@ -2528,12 +2533,14 @@ export namespace Prisma {
 
   export type PostAvgAggregateInputType = {
     id?: true
+    imgHeight?: true
     rePostId?: true
     parentPostId?: true
   }
 
   export type PostSumAggregateInputType = {
     id?: true
+    imgHeight?: true
     rePostId?: true
     parentPostId?: true
   }
@@ -2544,6 +2551,7 @@ export namespace Prisma {
     updatedAt?: true
     desc?: true
     img?: true
+    imgHeight?: true
     video?: true
     isSensitive?: true
     userId?: true
@@ -2557,6 +2565,7 @@ export namespace Prisma {
     updatedAt?: true
     desc?: true
     img?: true
+    imgHeight?: true
     video?: true
     isSensitive?: true
     userId?: true
@@ -2570,6 +2579,7 @@ export namespace Prisma {
     updatedAt?: true
     desc?: true
     img?: true
+    imgHeight?: true
     video?: true
     isSensitive?: true
     userId?: true
@@ -2670,6 +2680,7 @@ export namespace Prisma {
     updatedAt: Date
     desc: string | null
     img: string | null
+    imgHeight: number | null
     video: string | null
     isSensitive: boolean
     userId: string
@@ -2702,6 +2713,7 @@ export namespace Prisma {
     updatedAt?: boolean
     desc?: boolean
     img?: boolean
+    imgHeight?: boolean
     video?: boolean
     isSensitive?: boolean
     userId?: boolean
@@ -2725,6 +2737,7 @@ export namespace Prisma {
     updatedAt?: boolean
     desc?: boolean
     img?: boolean
+    imgHeight?: boolean
     video?: boolean
     isSensitive?: boolean
     userId?: boolean
@@ -2732,7 +2745,7 @@ export namespace Prisma {
     parentPostId?: boolean
   }
 
-  export type PostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "updatedAt" | "desc" | "img" | "video" | "isSensitive" | "userId" | "rePostId" | "parentPostId", ExtArgs["result"]["post"]>
+  export type PostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "updatedAt" | "desc" | "img" | "imgHeight" | "video" | "isSensitive" | "userId" | "rePostId" | "parentPostId", ExtArgs["result"]["post"]>
   export type PostInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     rePost?: boolean | Post$rePostArgs<ExtArgs>
@@ -2761,6 +2774,7 @@ export namespace Prisma {
       updatedAt: Date
       desc: string | null
       img: string | null
+      imgHeight: number | null
       video: string | null
       isSensitive: boolean
       userId: string
@@ -3147,6 +3161,7 @@ export namespace Prisma {
     readonly updatedAt: FieldRef<"Post", 'DateTime'>
     readonly desc: FieldRef<"Post", 'String'>
     readonly img: FieldRef<"Post", 'String'>
+    readonly imgHeight: FieldRef<"Post", 'Int'>
     readonly video: FieldRef<"Post", 'String'>
     readonly isSensitive: FieldRef<"Post", 'Boolean'>
     readonly userId: FieldRef<"Post", 'String'>
@@ -6561,6 +6576,7 @@ export namespace Prisma {
     updatedAt: 'updatedAt',
     desc: 'desc',
     img: 'img',
+    imgHeight: 'imgHeight',
     video: 'video',
     isSensitive: 'isSensitive',
     userId: 'userId',
@@ -6820,6 +6836,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Post"> | Date | string
     desc?: StringNullableFilter<"Post"> | string | null
     img?: StringNullableFilter<"Post"> | string | null
+    imgHeight?: IntNullableFilter<"Post"> | number | null
     video?: StringNullableFilter<"Post"> | string | null
     isSensitive?: BoolFilter<"Post"> | boolean
     userId?: StringFilter<"Post"> | string
@@ -6840,6 +6857,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     desc?: SortOrderInput | SortOrder
     img?: SortOrderInput | SortOrder
+    imgHeight?: SortOrderInput | SortOrder
     video?: SortOrderInput | SortOrder
     isSensitive?: SortOrder
     userId?: SortOrder
@@ -6864,6 +6882,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Post"> | Date | string
     desc?: StringNullableFilter<"Post"> | string | null
     img?: StringNullableFilter<"Post"> | string | null
+    imgHeight?: IntNullableFilter<"Post"> | number | null
     video?: StringNullableFilter<"Post"> | string | null
     isSensitive?: BoolFilter<"Post"> | boolean
     userId?: StringFilter<"Post"> | string
@@ -6884,6 +6903,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     desc?: SortOrderInput | SortOrder
     img?: SortOrderInput | SortOrder
+    imgHeight?: SortOrderInput | SortOrder
     video?: SortOrderInput | SortOrder
     isSensitive?: SortOrder
     userId?: SortOrder
@@ -6905,6 +6925,7 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
     desc?: StringNullableWithAggregatesFilter<"Post"> | string | null
     img?: StringNullableWithAggregatesFilter<"Post"> | string | null
+    imgHeight?: IntNullableWithAggregatesFilter<"Post"> | number | null
     video?: StringNullableWithAggregatesFilter<"Post"> | string | null
     isSensitive?: BoolWithAggregatesFilter<"Post"> | boolean
     userId?: StringWithAggregatesFilter<"Post"> | string
@@ -7210,6 +7231,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     user: UserCreateNestedOneWithoutPostsInput
@@ -7227,6 +7249,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     userId: string
@@ -7243,6 +7266,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutPostsNestedInput
@@ -7260,6 +7284,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
@@ -7277,6 +7302,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     userId: string
@@ -7289,6 +7315,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
   }
@@ -7299,6 +7326,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
@@ -7661,11 +7689,6 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | null
@@ -7675,6 +7698,11 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type UserScalarRelationFilter = {
@@ -7699,6 +7727,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     desc?: SortOrder
     img?: SortOrder
+    imgHeight?: SortOrder
     video?: SortOrder
     isSensitive?: SortOrder
     userId?: SortOrder
@@ -7708,6 +7737,7 @@ export namespace Prisma {
 
   export type PostAvgOrderByAggregateInput = {
     id?: SortOrder
+    imgHeight?: SortOrder
     rePostId?: SortOrder
     parentPostId?: SortOrder
   }
@@ -7718,6 +7748,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     desc?: SortOrder
     img?: SortOrder
+    imgHeight?: SortOrder
     video?: SortOrder
     isSensitive?: SortOrder
     userId?: SortOrder
@@ -7731,6 +7762,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     desc?: SortOrder
     img?: SortOrder
+    imgHeight?: SortOrder
     video?: SortOrder
     isSensitive?: SortOrder
     userId?: SortOrder
@@ -7740,6 +7772,7 @@ export namespace Prisma {
 
   export type PostSumOrderByAggregateInput = {
     id?: SortOrder
+    imgHeight?: SortOrder
     rePostId?: SortOrder
     parentPostId?: SortOrder
   }
@@ -7760,14 +7793,6 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | null
@@ -7782,6 +7807,14 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type PostScalarRelationFilter = {
@@ -8198,6 +8231,14 @@ export namespace Prisma {
     connect?: SavedPostsWhereUniqueInput | SavedPostsWhereUniqueInput[]
   }
 
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
   }
@@ -8288,14 +8329,6 @@ export namespace Prisma {
 
   export type IntFieldUpdateOperationsInput = {
     set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
@@ -8612,14 +8645,6 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | null
@@ -8647,11 +8672,20 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type PostCreateWithoutUserInput = {
     createdAt?: Date | string
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     rePost?: PostCreateNestedOneWithoutRePostsInput
@@ -8668,6 +8702,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     rePostId?: number | null
@@ -8797,6 +8832,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Post"> | Date | string
     desc?: StringNullableFilter<"Post"> | string | null
     img?: StringNullableFilter<"Post"> | string | null
+    imgHeight?: IntNullableFilter<"Post"> | number | null
     video?: StringNullableFilter<"Post"> | string | null
     isSensitive?: BoolFilter<"Post"> | boolean
     userId?: StringFilter<"Post"> | string
@@ -8946,6 +8982,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     user: UserCreateNestedOneWithoutPostsInput
@@ -8962,6 +8999,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     userId: string
@@ -8982,6 +9020,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     user: UserCreateNestedOneWithoutPostsInput
@@ -8998,6 +9037,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     userId: string
@@ -9023,6 +9063,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     user: UserCreateNestedOneWithoutPostsInput
@@ -9039,6 +9080,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     userId: string
@@ -9059,6 +9101,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     user: UserCreateNestedOneWithoutPostsInput
@@ -9075,6 +9118,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     userId: string
@@ -9202,6 +9246,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutPostsNestedInput
@@ -9218,6 +9263,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
@@ -9260,6 +9306,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutPostsNestedInput
@@ -9276,6 +9323,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
@@ -9382,6 +9430,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     user: UserCreateNestedOneWithoutPostsInput
@@ -9398,6 +9447,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     userId: string
@@ -9478,6 +9528,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutPostsNestedInput
@@ -9494,6 +9545,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
@@ -9552,6 +9604,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     user: UserCreateNestedOneWithoutPostsInput
@@ -9568,6 +9621,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     userId: string
@@ -9648,6 +9702,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutPostsNestedInput
@@ -9664,6 +9719,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
@@ -9864,6 +9920,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     rePostId?: number | null
@@ -9899,6 +9956,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     rePost?: PostUpdateOneWithoutRePostsNestedInput
@@ -9915,6 +9973,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     rePostId?: NullableIntFieldUpdateOperationsInput | number | null
@@ -9931,6 +9990,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     rePostId?: NullableIntFieldUpdateOperationsInput | number | null
@@ -10011,6 +10071,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     userId: string
@@ -10023,6 +10084,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     desc?: string | null
     img?: string | null
+    imgHeight?: number | null
     video?: string | null
     isSensitive?: boolean
     userId: string
@@ -10046,6 +10108,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutPostsNestedInput
@@ -10062,6 +10125,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
@@ -10078,6 +10142,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
@@ -10089,6 +10154,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutPostsNestedInput
@@ -10105,6 +10171,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
@@ -10121,6 +10188,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     desc?: NullableStringFieldUpdateOperationsInput | string | null
     img?: NullableStringFieldUpdateOperationsInput | string | null
+    imgHeight?: NullableIntFieldUpdateOperationsInput | number | null
     video?: NullableStringFieldUpdateOperationsInput | string | null
     isSensitive?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string

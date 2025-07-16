@@ -3,21 +3,31 @@ import Image from "./Image";
 import { prisma } from "@/prisma";
 import { auth } from "@clerk/nextjs/server";
 
+//TODO: part of the right bar, find users such that someone i follow is following them, and then
+// i display the informationo
+
 const Recommendations = async () => {
-  const { userId } = await auth();
+  const { userId } = await auth(); // the loged in user
 
   if (!userId) return;
 
+  // query to find the poeple that the logged in person follows
   const followingIds = await prisma.follow.findMany({
     where: { followerId: userId },
     select: { followingId: true },
   });
 
+  //  just mapping through and getting each persons id
   const followedUserIds = followingIds.map((f) => f.followingId);
+
+  // finding people that are not me and the people that i do not follow
 
   const friendRecommendations = await prisma.user.findMany({
     where: {
       id: { not: userId, notIn: followedUserIds },
+
+      // looking in the followings column for at least one or more users
+      // such that the person i follow is following them
       followings: { some: { followerId: { in: followedUserIds } } },
     },
     take: 3,

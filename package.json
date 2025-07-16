@@ -1,11 +1,12 @@
 {
+  "type": "module",
   "name": "x-clone",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "lint": "next lint"
   },
   "dependencies": {
@@ -21,8 +22,14 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-infinite-scroll-component": "^6.1.0",
+    "react-spinners": "^0.17.0",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "svix": "^1.64.1",
     "timeago.js": "^4.0.2",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "uuid": "^8.3.2",
+    "zod": "^3.24.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

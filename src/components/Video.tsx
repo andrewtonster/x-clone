@@ -2,6 +2,7 @@
 import { IKVideo } from "imagekitio-next";
 import React from "react";
 
+//TODO: Video component that just renders the given video with these settings
 const urlEndpoint = process.env.NEXT_PUBLIC_URL_ENDPOINT;
 type VideoTypes = {
   path: string;

@@ -3,6 +3,8 @@ import Search from "./Search";
 import PopularTags from "./PopularTags";
 import Recommendations from "./Recommendations";
 import Link from "next/link";
+
+//TODO: The right bar just suses links and shows the different things
 const RightBar = () => {
   return (
     <div className="pt-4 flex flex-col gap-4 sticky top-0 h-max">

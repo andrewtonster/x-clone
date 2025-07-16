@@ -2,6 +2,7 @@
 import { Image as IKImage } from "@imagekit/next";
 import React from "react";
 
+//TODO: The image component just creates the image from our endpoint and we pass in the path
 type ImageType = {
   path: string;
   w: number;

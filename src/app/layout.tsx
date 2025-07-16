@@ -4,7 +4,9 @@ import RightBar from "@/components/RightBar";
 import QueryProvider from "@/providers/QueryProvider";
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
+import { createContext } from "react";
 
+//TODO: Outer layer of the layout which has all the providers etc
 export const metadata: Metadata = {
   title: "Andrew X Clone",
   description: "",

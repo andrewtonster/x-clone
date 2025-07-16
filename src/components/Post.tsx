@@ -7,29 +7,26 @@ import Link from "next/link";
 import { Post as PostType } from "@prisma/client";
 import { format } from "timeago.js";
 
-type PostWithDetails = PostType & {
-  user: {
-    displayName: string | null;
-    username: string;
-    img: string | null;
-  };
-  rePost?: PostType & {
-    user: {
-      displayName: string | null;
-      username: string;
-      img: string | null;
-    };
-    _count: { likes: number; rePosts: number; comments: number };
-    likes: { id: number }[];
-    rePosts: { id: number }[];
-    saves: { id: number }[];
-  };
+// TODO: passing down a type as props to determine what type of comment this is?
 
+type UserSummary = {
+  displayName: string | null;
+  username: string;
+  img: string | null;
+};
+
+type Engagement = {
   _count: { likes: number; rePosts: number; comments: number };
   likes: { id: number }[];
   rePosts: { id: number }[];
   saves: { id: number }[];
+  isAuthor: boolean;
 };
+type PostWithDetails = PostType &
+  Engagement & {
+    user: UserSummary;
+    rePost?: (PostType & Engagement & { user: UserSummary }) | null;
+  };
 
 const Post = ({
   type,
@@ -38,9 +35,13 @@ const Post = ({
   type?: "status" | "comment";
   post: PostWithDetails;
 }) => {
+  // checking if the post has a repost field, if not just keep the post as the original post
   const originalPost = post.rePost || post;
 
+  console.log("this post has a repost ", post.desc, post.id, post.rePost);
+
   return (
+    /* IF POST IS REPOST */
     <div className="p-4 border-y-[1px] border-borderGray">
       {post.rePostId && (
         <div className="flex items-center gap-2 text-sm text-textGray mb-2 font-bold">
@@ -58,15 +59,18 @@ const Post = ({
           <span>{post.user.displayName} reposted</span>
         </div>
       )}
+
       {/* POST CONTENT */}
-      {/* <div className="flex gap-4"> */}
+      {/* if type is status (a specific post, then we do flex col) */}
+      {/* Post stack vertically (avatar and name above content) timestamp is at the bottom 
+            otherwise do name side to side
+        */}
       <div className={`flex gap-4 ${type === "status" && "flex-col"}`}>
         {/* AVATAR */}
-
         <div
           className={`${
             type === "status" && "hidden"
-          } relative w-10 h-10 rounded-full overflow-hidden`}
+          } relative w-10 h-10 rounded-full overflow-hidden -z-10`}
         >
           <Image
             path={originalPost.user.img || "general/noAvatar.png"}
@@ -85,6 +89,7 @@ const Post = ({
               href={`/${originalPost.user.username}`}
               className="flex gap-4"
             >
+              {/*AVATAR UI FOR A FEED COMMENT */}
               <div
                 className={`${
                   type !== "status" && "hidden"
@@ -99,6 +104,7 @@ const Post = ({
                 />
               </div>
 
+              {/* AVATAR UI FOR A STATUS COMMENT */}
               <div
                 className={`flex items-center gap-0 flex-wrap ${
                   type === "status" && "flex-col gap-0 !items-start"
@@ -111,6 +117,7 @@ const Post = ({
                   className={`text-textGray ${type === "status" && "text-sm"}`}
                 >
                   @{originalPost.user.username}
+                  {"\u00A0"}
                 </span>
                 {type !== "status" && (
                   <span className="text-textGray">
@@ -120,28 +127,38 @@ const Post = ({
               </div>
             </Link>
 
-            <PostInfo />
+            {/* */}
+            <PostInfo postId={post.id} usersPost={post.isAuthor} />
           </div>
           {/* TEXT AND MEDIA */}
           <Link
             href={`/${originalPost.user.username}/status/${originalPost.id}`}
           >
             <p className={`${type === "status" && "text-lg"}`}>
+              {" "}
+              {/* LARGE TEXT FOR STATUS PAGE */}
               {originalPost.desc}
             </p>
           </Link>
-          {originalPost.img && (
-            <Image path={originalPost.img} alt="" w={600} h={600} />
+          {originalPost.img && ( // if user posted with image than display it
+            <Image
+              path={originalPost.img}
+              alt=""
+              w={600}
+              h={originalPost.imgHeight || 600}
+            />
           )}
-          <Image path="general/post.jpeg" alt="" w={600} h={600} />
+          {/* <Image path="general/post.jpeg" alt="" w={600} h={600} /> */}
           {type === "status" && (
             <span className="text-textGray">8:41 PM • Dec 5, 2024</span>
           )}
           <PostInteractions
+            username={originalPost.user.username}
+            postId={originalPost.id}
             count={originalPost._count}
-            isLiked={!!originalPost.likes.length}
+            isLiked={!!originalPost.likes.length} // if i interacted with the post
             isRePosted={!!originalPost.rePosts.length}
-            isSaved={!!originalPost.rePosts.length}
+            isSaved={!!originalPost.saves.length}
           />
         </div>
       </div>

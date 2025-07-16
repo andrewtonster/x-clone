@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "@/components/Image";
 import Feed from "@/components/Feed";
@@ -6,23 +6,35 @@ import { prisma } from "@/prisma";
 import { notFound } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 import FollowButton from "@/components/FollowButton";
+import EditProfile from "@/components/EditProfile";
+//TODO: This papge is for the hompage /John
+
 const UserPage = async ({ params }: { params: { username: string } }) => {
   const { userId } = await auth();
+  const username = (await params).username; // getting the username
+  // the number of followers and followings(the people who follow this user)
+
+  let isOwnProfile = false;
 
   const user = await prisma.user.findUnique({
-    where: { username: params.username },
+    where: { username: username },
     include: {
       _count: { select: { followers: true, followings: true } },
-      followings: userId ? { where: { followerId: userId } } : undefined,
+      followings: userId ? { where: { followerId: userId } } : undefined, // if logged in user exists, where the logged in user is a follwer
     },
   });
 
-  console.log(userId);
+  console.log("this is my user", user);
 
   if (!user) return notFound;
 
+  if (user.id == userId) {
+    isOwnProfile = true;
+  }
+
   return (
     <div className="">
+      <div className="popup"></div>
       <div className="flex items-center gap-8 sticky top-0 backdrop-blur-md p-4 z-10 bg-[#00000084]">
         <Link href="/">
           <Image path="icons/back.svg" alt="back" w={24} h={24} />
@@ -32,7 +44,7 @@ const UserPage = async ({ params }: { params: { username: string } }) => {
       {/* INFO */}
       <div className="">
         {/* COVER AND AVATAR */}
-        <div className="relative w-full">
+        <div className="relative w-full -z-[10]">
           {/* COVER */}
           <div className="w-full aspect-[3/1] relative">
             <Image
@@ -44,7 +56,7 @@ const UserPage = async ({ params }: { params: { username: string } }) => {
             />
           </div>
           {/* AVATAR */}
-          <div className="w-1/6 aspect-square rounded-full overflow-hidden border-4 border-black bg-gray-300 absolute left-4 -translate-y-1/2">
+          <div className="w-1/6 aspect-square rounded-full overflow-hidden border-4 border-black absolute left-4 -translate-y-1/2">
             <Image
               path={user.img || "general/noAvatar.png"}
               alt=""
@@ -64,11 +76,13 @@ const UserPage = async ({ params }: { params: { username: string } }) => {
           <div className="w-9 h-9 flex icon-center justify-center rounded-full border-[1px] border-gray-500 cursor-pointer">
             <Image path="icons/message.svg" alt="more" w={20} h={20} />
           </div>
-          {userId && (
+          {!isOwnProfile ? (
             <FollowButton
               userId={user.id}
-              isFollowed={!!user.followings.length}
+              isFollowed={!!user.followings.length} // !! gives us the boolean for numbers
             />
+          ) : (
+            <EditProfile username={username} />
           )}
         </div>
         {/* USER DETAILS */}
@@ -112,7 +126,7 @@ const UserPage = async ({ params }: { params: { username: string } }) => {
             </div>
             <div className="flex items-center gap-2">
               <span className="font-bold">{user._count.followings}</span>
-              <span className="text-textGray text-[15px]">Followings</span>
+              <span className="text-textGray text-[15px]">Following</span>
             </div>
           </div>
         </div>

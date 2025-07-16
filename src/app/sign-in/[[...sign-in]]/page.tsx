@@ -4,6 +4,7 @@ import * as Clerk from "@clerk/elements/common";
 import * as SignIn from "@clerk/elements/sign-in";
 import Link from "next/link";
 
+//TODO: Sign up page mostly defining routes using steps using clerk and ui
 const SignInPage = () => {
   return (
     <div className="h-screen flex items-center justify-between p-8">
@@ -49,6 +50,7 @@ const SignInPage = () => {
               ></path>
             </svg>
             Sign in with Google
+            <div id="clerk-captcha" className="my-2" />
           </Clerk.Connection>
           <Clerk.Connection
             name="apple"
