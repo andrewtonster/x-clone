@@ -8,7 +8,12 @@ import { auth } from "@clerk/nextjs/server";
 import FollowButton from "@/components/FollowButton";
 import EditProfile from "@/components/EditProfile";
 import Redirect from "@/components/Redirect";
-const Liked = async ({ params }: { params: { username: string } }) => {
+
+interface Props {
+  params: Promise<{ username: string }>;
+}
+
+const Liked = async ({ params }: Props) => {
   const { userId } = await auth();
   const username = (await params).username; // getting the username
   // the number of followers and followings(the people who follow this user)

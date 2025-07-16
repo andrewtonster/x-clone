@@ -9,7 +9,11 @@ import FollowButton from "@/components/FollowButton";
 import Redirect from "@/components/Redirect";
 import EditProfile from "@/components/EditProfile";
 
-const Reposts = async ({ params }: { params: { username: string } }) => {
+interface Props {
+  params: Promise<{ username: string }>;
+}
+
+const Reposts = async ({ params }: Props) => {
   const { userId } = await auth();
   const username = (await params).username; // getting the username
   // the number of followers and followings(the people who follow this user)

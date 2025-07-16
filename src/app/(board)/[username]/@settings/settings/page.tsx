@@ -1,10 +1,12 @@
-import Image from "@/components/Image";
 import { auth } from "@clerk/nextjs/server";
 import { prisma } from "@/prisma";
 import { notFound } from "next/navigation";
 import EditProfileForm from "@/components/EditProfileForm";
 
-const SettingsModal = async ({ params }: { params: { username: string } }) => {
+interface Props {
+  params: Promise<{ username: string }>;
+}
+const SettingsModal = async ({ params }: Props) => {
   const { userId } = await auth();
   const username = (await params).username; // getting the username
 
@@ -19,14 +21,12 @@ const SettingsModal = async ({ params }: { params: { username: string } }) => {
   });
 
   if (!user) return notFound;
-  console.log("passed the user not found");
+
   if (user.id == userId) {
-    console.log("got into if statmet");
     isOwnProfile = true;
   }
 
   if (!isOwnProfile) return notFound;
-  console.log("ise own profile reached");
   return (
     <div>
       <EditProfileForm img={user.img} />
