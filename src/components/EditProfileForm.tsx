@@ -14,6 +14,13 @@ const override: CSSProperties = {
   borderColor: "white",
 };
 
+type ProfileState = {
+  success: boolean;
+  error: boolean;
+  user?: string;
+  usernameTaken?: boolean;
+};
+
 const EditProfileForm = ({ img }: { img: string | null }) => {
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -24,11 +31,14 @@ const EditProfileForm = ({ img }: { img: string | null }) => {
   let [loading, setLoading] = useState(true);
   let [color, setColor] = useState("#ffffff");
   const router = useRouter();
-  const [state, formAction, isPending] = useActionState(updateProfile, {
-    success: false,
-    error: false,
-    user: "",
-  });
+  const [state, formAction, isPending] = useActionState<ProfileState, FormData>(
+    updateProfile,
+    {
+      success: false,
+      error: false,
+      user: "",
+    }
+  );
 
   const [backgroundPreview, setBackgroundPreview] = useState<string | null>(
     null

@@ -11,6 +11,13 @@ import { redirect } from "next/navigation";
 
 //TODO: Action servers that work with our backend
 
+type ProfileState = {
+  success: boolean;
+  error: boolean;
+  user?: string;
+  usernameTaken?: boolean;
+};
+
 export type DeletePostState = {
   success: boolean;
   error: boolean;
@@ -256,9 +263,9 @@ export const addPost = async (
 };
 
 export const updateProfile = async (
-  previousState: { success: boolean; error: boolean } | undefined,
+  prev: ProfileState,
   formData: FormData
-) => {
+): Promise<ProfileState> => {
   "use server";
   const { userId } = await auth();
   if (!userId) return;
@@ -433,6 +440,7 @@ export const updateProfile = async (
   if (username) {
     redirect(`/${username}`);
   }
+  return { success: false, error: true };
 };
 
 export async function deletePost(
