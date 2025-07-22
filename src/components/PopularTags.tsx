@@ -11,7 +11,7 @@ const PopularTags = () => {
       <div className="flex gap-4">
         <div className="relative w-20 h-20 rounded-xl overflow-hidden">
           <Image
-            path="/general/avatar.png"
+            path="/general/Luka.png"
             alt="event"
             w={120}
             h={120}
@@ -20,7 +20,7 @@ const PopularTags = () => {
         </div>
         <div className="flex-1">
           <h2 className="font-bold text-textGrayLight">
-            Nadal V Federer Grand Slam
+            Luka Doncic to the Lakers
           </h2>
           <span className="text-sm text-textGray">Last night</span>
         </div>
@@ -32,34 +32,34 @@ const PopularTags = () => {
           <Image path="icons/infoMore.svg" alt="info" w={16} h={16} />
         </div>
         <h2 className="text-textGrayLight font-bold">OpenAI</h2>
-        <span className="text-textGray text-sm">20k post</span>
+        <span className="text-textGray text-sm">40k post</span>
       </div>
       {/* TOPICS */}
       <div className="">
         <div className="flex items-center justify-between">
-          <span className="text-textGray text-sm">Technology • Trending</span>
+          <span className="text-textGray text-sm">Games • Trending</span>
           <Image path="icons/infoMore.svg" alt="info" w={16} h={16} />
         </div>
-        <h2 className="text-textGrayLight font-bold">OpenAI</h2>
-        <span className="text-textGray text-sm">20k post</span>
+        <h2 className="text-textGrayLight font-bold">New Pokemon Game</h2>
+        <span className="text-textGray text-sm">30k post</span>
       </div>
       {/* TOPICS */}
       <div className="">
         <div className="flex items-center justify-between">
-          <span className="text-textGray text-sm">Technology • Trending</span>
+          <span className="text-textGray text-sm">Sports • Trending</span>
           <Image path="icons/infoMore.svg" alt="info" w={16} h={16} />
         </div>
-        <h2 className="text-textGrayLight font-bold">OpenAI</h2>
-        <span className="text-textGray text-sm">20k post</span>
+        <h2 className="text-textGrayLight font-bold">Luka Doncic</h2>
+        <span className="text-textGray text-sm">25k post</span>
       </div>
       {/* TOPICS */}
       <div className="">
         <div className="flex items-center justify-between">
-          <span className="text-textGray text-sm">Technology • Trending</span>
+          <span className="text-textGray text-sm">Food • Trending</span>
           <Image path="icons/infoMore.svg" alt="info" w={16} h={16} />
         </div>
-        <h2 className="text-textGrayLight font-bold">OpenAI</h2>
-        <span className="text-textGray text-sm">20k post</span>
+        <h2 className="text-textGrayLight font-bold">Matcha</h2>
+        <span className="text-textGray text-sm">15k post</span>
       </div>
       {/* TOPICS */}
 

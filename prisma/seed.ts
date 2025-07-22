@@ -21,7 +21,6 @@ async function main() {
     });
     users.push(user);
   }
-  console.log(`${users.length} users created.`);
 
   // Create 5 posts for each user
   const posts = [];
@@ -36,7 +35,6 @@ async function main() {
       posts.push(post);
     }
   }
-  console.log("Posts created.");
 
   // Create some follows
   await prisma.follow.createMany({
@@ -48,7 +46,6 @@ async function main() {
       { followerId: users[3].id, followingId: users[0].id },
     ],
   });
-  console.log("Follows created.");
 
   // Create some likes
   await prisma.like.createMany({
@@ -60,7 +57,6 @@ async function main() {
       { userId: users[4].id, postId: posts[4].id },
     ],
   });
-  console.log("Likes created.");
 
   // Create some comments (each comment is a post linked to a parent post)
   const comments = [];
@@ -76,7 +72,6 @@ async function main() {
     });
     comments.push(comment);
   }
-  console.log("Comments created.");
 
   // Create reposts using the Post model's rePostId
   const reposts = [];
@@ -90,7 +85,6 @@ async function main() {
     });
     reposts.push(repost);
   }
-  console.log("Reposts created.");
 
   // Create saved posts (users save posts they like)
   await prisma.savedPosts.createMany({
@@ -102,7 +96,6 @@ async function main() {
       { userId: users[4].id, postId: posts[0].id },
     ],
   });
-  console.log("Saved posts created.");
 }
 
 main()

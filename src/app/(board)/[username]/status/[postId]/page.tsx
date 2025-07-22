@@ -3,7 +3,7 @@ import Post from "@/components/Post";
 import Comments from "@/components/Comments";
 import { auth } from "@clerk/nextjs/server";
 import { prisma } from "@/prisma";
-import { notFound } from "next/navigation";
+
 import BackButton from "@/components/BackButton";
 
 //TODO: This page shows a specific post, we get post id and find all the details of
@@ -58,8 +58,7 @@ const StatusPage = async ({
     },
   });
 
-  console.log(post);
-  if (!post) return notFound();
+  if (!post) return;
   return (
     <div>
       {/*POST HEADER */}

@@ -21,7 +21,6 @@ const Feed = async ({
   // getting the user id from clerk.
   const { userId } = await auth(); // gets the userId from the Auth object provided by clerk
 
-  console.log(userId);
   if (!userId) return;
 
   const whereCondition = userProfileId
@@ -76,7 +75,7 @@ const Feed = async ({
         ...postIncludeQuery,
       },
     });
-    console.log("This is my saved post", savedPosts);
+
     if (savedPosts.length === 0) return <div>No saved Posts</div>;
 
     return (
@@ -108,7 +107,7 @@ const Feed = async ({
         ...postIncludeQuery,
       },
     });
-    console.log("This is my saved post", likedPosts);
+
     if (likedPosts.length === 0) return <div>No liked Posts</div>;
 
     return (
@@ -140,7 +139,7 @@ const Feed = async ({
         ...postIncludeQuery,
       },
     });
-    console.log("This is my saved post", repostedPosts);
+
     if (repostedPosts.length === 0) return <div>No posts reposted</div>;
 
     return (
@@ -207,8 +206,6 @@ const Feed = async ({
   }));
 
   // if it is a repost then we get both the original and the person user follows who repost to get data and use however we want
-
-  console.log(postWithFlags);
 
   // FETCH POSTS FROM THE CURRENT USER AND THE FOLLOWINGS
   return (

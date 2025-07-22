@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "@/components/Image";
 import Feed from "@/components/Feed";
 import { prisma } from "@/prisma";
-import { notFound } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 import FollowButton from "@/components/FollowButton";
 import EditProfile from "@/components/EditProfile";
@@ -27,9 +26,7 @@ const UserPage = async ({ params }: Props) => {
     },
   });
 
-  console.log("this is my user", user);
-
-  if (!user) return notFound;
+  if (!user) return;
 
   if (user.id == userId) {
     isOwnProfile = true;

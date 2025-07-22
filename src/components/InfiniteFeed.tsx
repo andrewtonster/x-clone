@@ -29,8 +29,6 @@ const InfiniteFeed = ({ userProfileId }: { userProfileId?: string }) => {
   if (error) return "something went wrong!";
   if (status === "pending") return "Loading...";
 
-  console.log(data);
-
   //data is an array and stores a list of objects returned from queryfn
   // changes each post into post array and then flattens it out into one array from flatmap
   const allPosts = data?.pages?.flatMap((page) => page.posts) || [];

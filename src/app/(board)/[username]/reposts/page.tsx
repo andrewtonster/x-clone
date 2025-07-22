@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "@/components/Image";
 import Feed from "@/components/Feed";
 import { prisma } from "@/prisma";
-import { notFound } from "next/navigation";
+
 import { auth } from "@clerk/nextjs/server";
 import FollowButton from "@/components/FollowButton";
 import Redirect from "@/components/Redirect";
@@ -28,9 +28,7 @@ const Reposts = async ({ params }: Props) => {
     },
   });
 
-  console.log(userId);
-
-  if (!user) return notFound;
+  if (!user) return;
 
   if (user.id == userId) {
     isOwnProfile = true;

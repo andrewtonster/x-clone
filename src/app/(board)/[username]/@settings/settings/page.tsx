@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import { prisma } from "@/prisma";
-import { notFound } from "next/navigation";
+
 import EditProfileForm from "@/components/EditProfileForm";
 
 interface Props {
@@ -20,13 +20,13 @@ const SettingsModal = async ({ params }: Props) => {
     },
   });
 
-  if (!user) return notFound;
+  if (!user) return;
 
   if (user.id == userId) {
     isOwnProfile = true;
   }
 
-  if (!isOwnProfile) return notFound;
+  if (!isOwnProfile) return;
   return (
     <div>
       <EditProfileForm img={user.img} />

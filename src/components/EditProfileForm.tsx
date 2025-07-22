@@ -1,12 +1,10 @@
 "use client";
 import Image from "@/components/Image";
 import { useState, useActionState } from "react";
-import { notFound } from "next/navigation";
 import { updateProfile } from "@/action";
 import NextImage from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-
 import { CSSProperties } from "react";
 import { SyncLoader } from "react-spinners";
 
@@ -31,18 +29,12 @@ const EditProfileForm = ({ img }: { img: string | null }) => {
     error: false,
     user: "",
   });
-  //   const [backgroundImg, setBackgroundImg] = useState<File | null>(null);
+
   const [backgroundPreview, setBackgroundPreview] = useState<string | null>(
     null
   );
 
-  //   const [profileImg, setProfileImg] = useState<File | null>(null);
   const [profilePreview, setProfilePreview] = useState<string | null>(null);
-
-  //   const previewBackgroundImg = backgroundImg
-  //     ? URL.createObjectURL(backgroundImg)
-  //     : null;
-  //   const previewProfileImg = profileImg ? URL.createObjectURL(profileImg) : null;
 
   const handleBackgroundChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {

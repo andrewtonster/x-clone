@@ -50,7 +50,6 @@ const SignInPage = () => {
               ></path>
             </svg>
             Sign in with Google
-            <div id="clerk-captcha" className="my-2" />
           </Clerk.Connection>
           <Clerk.Connection
             name="apple"

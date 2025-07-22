@@ -195,7 +195,7 @@ function Share({ userImg }: { userImg: string | null }) {
                 />
               </div>
               <button
-                className="bg-white text-black font-bold rounded-full py-2 px-4 disabled:cursor-not-allowed"
+                className="bg-white text-black font-bold rounded-full py-2 px-4 disabled:cursor-not-allowed cursor-pointer"
                 disabled={isPending} // part of use action state
               >
                 {isPending ? "Posting" : "Post"}

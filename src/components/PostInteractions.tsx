@@ -34,21 +34,8 @@ function PostInteractions({
 
   // function to add like,
   const likeAction = async () => {
-    console.log("This is the person who posted this", username);
-    console.log(username);
     if (!user) return;
 
-    // if (!optimisticCount.isLiked) {
-    //   console.log("in like action, testing socket emit");
-    //   socket.emit("sendNotification", {
-    //     receiverUsername: username,
-    //     data: {
-    //       senderUsername: user.username,
-    //       type: "like",
-    //       link: `/${username}/status/${postId}`,
-    //     },
-    //   });
-    // }
     addOptomisticCount("like"); // update ui immedietly before waiting for a backend call
     await likePost(postId);
     setState((prev) => {

@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 const EditProfile = ({ username }: { username: string }) => {
   const router = useRouter();
-  console.log(username);
 
   if (!username) return null;
   return (

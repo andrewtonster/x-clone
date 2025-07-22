@@ -270,6 +270,7 @@ export const updateProfile = async (
 
   const defaultName = row?.username ?? "";
 
+  
   if (!defaultName) redirect("/sign-in");
 
   const username = formData.get("username") as string | null;
@@ -431,6 +432,7 @@ export const updateProfile = async (
   }
 
   if (username) {
+     "in username redirect", username);
     redirect(`/${username}`);
   }
 };
@@ -472,6 +474,7 @@ export async function deletePost(
     revalidatePath(`/`);
     return { success: true, error: false };
   } catch (err) {
+    console.error("deletePost error:", err);
     return { success: false, error: true };
   }
 }
