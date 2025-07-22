@@ -7,6 +7,7 @@
     "dev": "next dev --port 3001",
     "build": "prisma generate && next build",
     "start": "NODE_ENV=production node server.js",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build",
     "lint": "next lint",
     "postinstall": "prisma generate"
   },

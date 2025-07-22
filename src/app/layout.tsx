@@ -1,7 +1,5 @@
 import "./globals.css";
-
 import QueryProvider from "@/providers/QueryProvider";
-
 import { ClerkProvider } from "@clerk/nextjs";
 
 //TODO: Outer layer of the layout which has all the providers etc
