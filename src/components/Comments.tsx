@@ -39,21 +39,6 @@ const Comments = ({
     error: false,
   });
 
-  // use this effect if state.success changes, and check if it is true or false
-  // emitting a notification to the other user
-  // useEffect(() => {
-  //   if (state.success) {
-  //     socket.emit("sendNotification", {
-  //       receiverUsername: username,
-  //       data: {
-  //         senderUsername: user?.username,
-  //         type: "comment",
-  //         link: `/${username}/status/${postId}`,
-  //       },
-  //     });
-  //   }
-  // }, [state.success, username, user?.username, postId]);
-
   return (
     <div className="">
       {/* FORM IS THE POST REPLY FORM: SENDING THESE FIELDS TO SERVER ACTION: USERNAME, DESCRIPTION, POSTID */}
