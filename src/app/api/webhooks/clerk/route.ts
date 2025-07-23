@@ -49,6 +49,7 @@ export async function POST(req: NextRequest) {
   const eventType = evt.type;
 
   if (eventType === "user.created") {
+    console.log("reached user creation");
     try {
       await prisma.user.create({
         data: {
@@ -80,23 +81,9 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // if (eventType === "session.created") {
-  //   // trying to create a session without an account
-  //   try {
-  //     const userExist = await prisma.user.findUnique({
-  //       where: { id: evt.data.id },
-  //     });
-
-  //     if (!userExist) {
-  //       redirect("/sign-up");
-  //     }
-  //   } catch (err) {
-  //     console.log(err);
-  //     return new Response("Error: Failed to create a user!", {
-  //       status: 500,
-  //     });
-  //   }
-  // }
+  if (eventType === "session.created") {
+    console.log("session was created and token probably added");
+  }
 
   return new Response("Webhook received", { status: 200 });
 }

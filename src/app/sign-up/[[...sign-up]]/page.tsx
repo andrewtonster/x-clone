@@ -84,7 +84,6 @@ const SignUpPage = () => {
                 />
                 <Clerk.FieldError className="text-red-300 text-sm" />
               </Clerk.Field>
-              <SignUp.Captcha />
               <SignUp.Action
                 submit
                 className="bg-iconBlue rounded-full p-2 text-white font-bold w-72 text-center cursor-pointer"
@@ -93,13 +92,7 @@ const SignUpPage = () => {
               </SignUp.Action>
             </div>
           </SignUp.Step>
-          {/* 
-          <SignUp.Step name="start" className="flex flex-col gap-4">
-            <SignUp.Captcha />
-            <SignUp.Action submit className="bg-iconBlue ...">
-              Continue
-            </SignUp.Action>
-          </SignUp.Step> */}
+
           <SignUp.Step name="continue" className="flex flex-col gap-4">
             <Clerk.Field name="username">
               <Clerk.Input
