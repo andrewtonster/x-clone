@@ -91,7 +91,7 @@ const Comments = ({
           />
           <button
             disabled={isPending}
-            className="py-2 px-4 font-bold bg-white text-black rounded-full disabled:cursor-not-allowed disabled:bg-slate-200"
+            className="py-2 px-4 font-bold bg-white text-black rounded-full disabled:cursor-not-allowed disabled:bg-slate-200 cursor-pointer"
           >
             {isPending ? "Replying" : "Reply"}
           </button>
