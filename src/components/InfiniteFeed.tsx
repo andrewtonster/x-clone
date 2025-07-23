@@ -26,7 +26,7 @@ const InfiniteFeed = ({ userProfileId }: { userProfileId?: string }) => {
     ) => (lastPage.hasMore ? pages.length + 2 : undefined),
   });
 
-  if (error) return "something went wrong!";
+  if (error) return "all posts loaded!";
   if (status === "pending") return "Loading...";
 
   //data is an array and stores a list of objects returned from queryfn

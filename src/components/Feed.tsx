@@ -172,7 +172,7 @@ const Feed = async ({
       },
     });
 
-    if (commentedPosts.length === 0) return <div>No posts reposted</div>;
+    if (commentedPosts.length === 0) return <div>No posts commented on</div>;
 
     return (
       <div>
@@ -195,8 +195,8 @@ const Feed = async ({
       },
       ...postIncludeQuery,
     },
-    take: 3,
-    skip: 0,
+    // take: 3,
+    // skip: 0,
     orderBy: { createdAt: "desc" }, // order in descending order by created at
   });
 
@@ -215,7 +215,7 @@ const Feed = async ({
           <Post post={post} />
         </div>
       ))}
-      <InfiniteFeed userProfileId={userProfileId} />
+      {/* <InfiniteFeed userProfileId={userProfileId} /> */}
     </div>
   );
 };
