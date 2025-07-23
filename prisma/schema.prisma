@@ -46,7 +46,7 @@ model Post {
   isSensitive Boolean  @default(false)
 
   // ——— User → Post
-  user   User   @relation(fields: [userId], references: [id]) // relation field
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade) // relation field
   userId String // holds the id of the user that posted this
 
   // ——— Re‑post self‑relation (self relations define hiearchy)
@@ -71,7 +71,7 @@ model Like {
   userId String
   postId Int
 
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
 }
 
@@ -84,7 +84,7 @@ model SavedPosts {
   userId String
   postId Int
 
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
 }
 
@@ -96,6 +96,6 @@ model Follow {
   followerId  String // User.id of the person who is doing the following
   followingId String // User.id of the person being followed
 
-  follower  User @relation("UserFollowers", fields: [followerId], references: [id]) // think of as followed
-  following User @relation("UserFollowings", fields: [followingId], references: [id]) // the person following this specific user
+  follower  User @relation("UserFollowers", fields: [followerId], references: [id], onDelete: Cascade) // think of as followed
+  following User @relation("UserFollowings", fields: [followingId], references: [id], onDelete: Cascade) // the person following this specific user
 }

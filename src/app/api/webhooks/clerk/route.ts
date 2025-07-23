@@ -3,6 +3,7 @@ import { prisma } from "@/prisma";
 import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
 export async function POST(req: NextRequest) {
   // ensure signing secret is present
@@ -69,6 +70,7 @@ export async function POST(req: NextRequest) {
   if (eventType === "user.deleted") {
     try {
       await prisma.user.delete({ where: { id: evt.data.id } });
+      console.log("user deleted");
       return new Response("User deleted", { status: 200 });
     } catch (err) {
       console.log(err);
@@ -77,6 +79,24 @@ export async function POST(req: NextRequest) {
       });
     }
   }
+
+  // if (eventType === "session.created") {
+  //   // trying to create a session without an account
+  //   try {
+  //     const userExist = await prisma.user.findUnique({
+  //       where: { id: evt.data.id },
+  //     });
+
+  //     if (!userExist) {
+  //       redirect("/sign-up");
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //     return new Response("Error: Failed to create a user!", {
+  //       status: 500,
+  //     });
+  //   }
+  // }
 
   return new Response("Webhook received", { status: 200 });
 }
