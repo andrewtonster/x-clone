@@ -212,12 +212,12 @@ const LeftBar = async () => {
         >
           <Image path="icons/post.svg" alt="new post" w={24} h={24} />
         </Link>
-        <Link
+        {/* <Link
           href="/compose/post"
           className="hidden xxl:block bg-white text-black rounded-full font-bold py-2 px-20"
         >
           Post
-        </Link>
+        </Link> */}
       </div>
       {/*FOOTER */}
       <div className="relative flex items-center justify-between">

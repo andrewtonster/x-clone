@@ -86,7 +86,7 @@ const PostModal = () => {
               className="cursor-pointer"
             />
           </div>
-          <button className="py-2 px-5 text-black bg-white rounded-full font-bold">
+          <button className="py-2 px-5 text-black bg-white rounded-full font-bold cursor-pointer">
             Post
           </button>
         </div>
