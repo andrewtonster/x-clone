@@ -2,11 +2,11 @@
 
 import { auth } from "@clerk/nextjs/server";
 // import { prisma } from "./prisma";
-import { prisma } from "./prisma";
+import { prisma } from "@/prisma";
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { UploadResponse } from "@imagekit/next";
-import { imagekit } from "./utils";
+import { imagekit } from "@/utils";
 import { redirect } from "next/navigation";
 
 //TODO: Action servers that work with our backend
@@ -270,7 +270,6 @@ export const updateProfile = async (
 
   const defaultName = row?.username ?? "";
 
-  
   if (!defaultName) redirect("/sign-in");
 
   const username = formData.get("username") as string | null;
@@ -432,7 +431,6 @@ export const updateProfile = async (
   }
 
   if (username) {
-     "in username redirect", username);
     redirect(`/${username}`);
   }
 };

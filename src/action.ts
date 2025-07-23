@@ -268,7 +268,7 @@ export const updateProfile = async (
 ): Promise<ProfileState> => {
   "use server";
   const { userId } = await auth();
-  if (!userId) return;
+  if (!userId) return { success: false, error: true };
 
   let row = await prisma.user.findUnique({
     where: { id: userId },
