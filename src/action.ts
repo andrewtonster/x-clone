@@ -11,7 +11,7 @@ import { redirect } from "next/navigation";
 
 //TODO: Action servers that work with our backend
 
-// definine shared state
+// definine shared states
 type ProfileState = {
   success: boolean;
   error: boolean;
